@@ -22,7 +22,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Create and set the steamcmd folder as a volume
 RUN mkdir -p /steamcmd/hurtworld
-VOLUME ["/steamcmd"]
+VOLUME ["/steamcmd/hurtworld"]
 
 # Add the steamcmd installation script
 ADD install.txt /install.txt
@@ -31,6 +31,7 @@ ADD install.txt /install.txt
 ADD start_hurtworld.sh /start.sh
 
 # Expose necessary ports
+EXPOSE 12871
 EXPOSE 12871/udp
 EXPOSE 12881/udp
 
