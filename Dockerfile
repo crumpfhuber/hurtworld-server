@@ -1,16 +1,15 @@
-FROM ubuntu:14.04
+FROM didstopia/base:nodejs-steamcmd-ubuntu-16.04
+
+MAINTAINER Didstopia <support@didstopia.com>
+
+# Fixes apt-get warnings
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Run a quick apt-get update/upgrade
 RUN apt-get update && apt-get upgrade -y && apt-get autoremove -y
 
-# Install dependencies, mainly for SteamCMD
+# Install dependencies
 RUN apt-get install --no-install-recommends -y \
-    ca-certificates \
-    software-properties-common \
-    python-software-properties \
-    lib32gcc1 \
-    curl \
-    wget \
     telnet
 
 # Run as root
@@ -40,4 +39,4 @@ ENV HURTWORLD_SERVER_STARTUP_EXEC "host 12871;queryport 12881;servername Hurtwor
 ENV HURTWORLD_SERVER_STARTUP_ARGUMENTS "-batchmode -nographics -logfile /dev/stdout"
 
 # Start the server
-CMD bash /start.sh
+ENTRYPOINT ["./start.sh"]
