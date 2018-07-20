@@ -1,5 +1,7 @@
 ## Hurtworld server that runs inside a Docker container
 
+*Show your support for this project by signing up for a [free Bitrise account!](https://app.bitrise.io?referrer=02c20c56fa07adcb)*
+
 NOTE: This image will always install/update to the latest steamcmd and Hurtworld server, all you have to do to update your server is to redeploy the container.
 
 Also note that the entire /steamcmd/hurtworld can be mounted on the host system.
