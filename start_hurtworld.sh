@@ -12,6 +12,11 @@ bash /steamcmd/steamcmd.sh +runscript /install.txt
 cp /steamcmd/hurtworld/linux64/steamclient.so  /steamcmd/hurtworld/Hurtworld_Data/Plugins/x86_64/steamclient.so
 cp /steamcmd/hurtworld/steamclient.so /steamcmd/hurtworld/Hurtworld_Data/Plugins/x86/steamclient.so
 
+# Fix potential library path issues
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/steamcmd/7dtd/7DaysToDieServer_Data/Plugins/x86_64
+
+## FIXME: Add graceful shutdown support
+
 # Setup paths and run the server
 echo "Starting Hurtworld.."
 cd /steamcmd/hurtworld
