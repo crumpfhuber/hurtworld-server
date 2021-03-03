@@ -6,11 +6,11 @@ LABEL maintainer="Didstopia <support@didstopia.com>"
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Run a quick apt-get update/upgrade
-RUN apt-get update && apt-get upgrade -y && apt-get autoremove -y
+# Add "libsdl2-2.0-0:i386" because of steam lib compatibility reasons
+RUN apt-get update && apt-get upgrade -y && apt-get install libsdl2-2.0-0:i386 && apt-get autoremove -y
 
 # Install dependencies
-RUN apt-get install --no-install-recommends -y \
-    telnet
+RUN apt-get install --no-install-recommends -y telnet
 
 # Run as root
 USER root
