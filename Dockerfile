@@ -7,6 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Run a quick apt-get update/upgrade
 # Add "libsdl2-2.0-0:i386" because of steam lib compatibility reasons
+RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get upgrade -y && apt-get install libsdl2-2.0-0:i386 && apt-get autoremove -y
 
 # Install dependencies
